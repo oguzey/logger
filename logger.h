@@ -1,6 +1,7 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
+#include <iostream>
 #include "spdlog/include/spdlog/spdlog.h"
 
 namespace logger {
@@ -78,9 +79,9 @@ extern logger::Logger& my_logger;
 #ifdef DEBUG_ON
 #include <string.h>
 #define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
-#define DEBUG(format, ...) logger.debug("[{}:{}] " format, __FILENAME__, __LINE__, ##__VA_ARGS__)
+#define DEBUG(format, ...) my_logger.debug("[{}:{}] " format, __FILENAME__, __LINE__, ##__VA_ARGS__)
 #else
 #define DEBUG(format, ...)
 #endif
 
-#endif //MODERN_CRYPTOLOGY_LOGGER_H
+#endif //LOGGER_H

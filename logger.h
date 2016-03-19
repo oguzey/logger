@@ -4,8 +4,8 @@
 #include <iostream>
 #include "spdlog/include/spdlog/spdlog.h"
 
-namespace logger {
-    class Logger {
+namespace simple_logger {
+    class logger {
     private:
         std::shared_ptr<spdlog::logger> console_logger;
 
@@ -64,10 +64,10 @@ namespace logger {
 
 #ifdef ALLOCATE_LOGGER
 
-logger::Logger& my_logger = logger::Logger::get_logger();
+simple_logger::logger& my_logger = simple_logger::logger::get_logger();
 
 #else
-extern logger::Logger& my_logger;
+extern simple_logger::logger& my_logger;
 #endif
 
 

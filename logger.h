@@ -79,9 +79,9 @@ extern simple_logger::Logger& my_logger;
 #ifdef DEBUG_ON
 #include <string.h>
 #define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
-#define DEBUG(format, ...) my_logger.debug("[{}:{}] " format, __FILENAME__, __LINE__, ##__VA_ARGS__)
+#define DEBUG(...)  my_logger.debug("[{}:{}]", __FILENAME__, __LINE__); my_logger.debug(__VA_ARGS__)
 #else
-#define DEBUG(format, ...)
+#define DEBUG(...)
 #endif
 
 #endif //LOGGER_H

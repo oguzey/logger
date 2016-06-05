@@ -76,7 +76,7 @@ extern simple_logger::Logger& my_logger;
 #define WARN(...)        my_logger.warn(__VA_ARGS__)
 #define CRITICAL(...)    my_logger.critical(__VA_ARGS__)
 
-#ifdef DEBUG_ON
+#ifndef NDEBUG
 #include <string.h>
 #define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 #define DEBUG(...)  my_logger.debug("[{}:{}]", __FILENAME__, __LINE__); my_logger.debug(__VA_ARGS__)
